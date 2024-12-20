@@ -6,25 +6,30 @@ from django.contrib.auth.forms import UserCreationForm
 
 class SongForm(forms.ModelForm):
 
-    tab = forms.FileField(widget=forms.FileInput(attrs={'accept':'/*',}))
+    tab = forms.FileField(widget=forms.FileInput(attrs={'songs':'/*',}))
 
     class Meta: 
         model = models.Song
         fields = ('song_name', 'song_author', 'yt_video', 'audio', 'tab', 'style')
 
 
+class RegisterForm(UserCreationForm):
+    pass
+
+
+class ArtistForm(forms.ModelForm):
+
+    class Meta: 
+        model = models.Artist
+        fields = ('name',)
+
+
     def clean(self):
         cleaned_data = self.cleaned_data
 
-        first_name = cleaned_data.get('song_name')
-        last_name = cleaned_data.get('song_author')
-
-        if first_name==last_name:
-            self.add_error('first_name',ValidationError('Os nomes não podem ser iguais',code='invalid1'))
-            self.add_error('last_name',ValidationError('Os nomes não podem ser iguais',code='invalid2')) 
+        name = cleaned_data.get('song_author')
 
         return super().clean()
-
 
 class RegisterForm(UserCreationForm):
     pass
