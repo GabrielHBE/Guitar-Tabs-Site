@@ -1,12 +1,12 @@
 {% extends "global/base.html" %}
 
-
 {% block content %}
 
 {% if page_obj %}
 
     <div class="responsive-table">
         <table class="contacts-table">
+
             <caption class="table-caption">
                 Contacts
             </caption>
@@ -22,7 +22,7 @@
                 {% for artist in page_obj %}
                     <tr class="table">
                         <td class="table-cel">
-                            <a class="table-link" href="{% url 'artist:artist' artist.id  %}">{{artist.id}}</a>
+                            <a class="table-link" href="{% url 'home:artists' %}">{{artist.id}}</a>
                         </td>
 
                         <td class="table-cel">
