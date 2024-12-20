@@ -3,7 +3,22 @@
 
 {% block content %}
 
-    <h1>oi</h1>
+    {% for song in page_obj %}
+        <tr class="table">
+            <td class="table-cel">
+                <a class="table-link" href="#">{{song.id}}</a>
+            </td>
+
+            <td class="table-cel">
+                {{song.song_name}}
+            </td>
+
+            <td class="table-cel">
+                {{song.song_author}}
+            </td>
+
+        </tr>
+    {% endfor %}
 
 {% endblock content %}
 
