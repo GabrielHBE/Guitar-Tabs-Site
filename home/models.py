@@ -14,10 +14,13 @@ class Category(models.Model):
     def __str__(self) -> str:
         return self.name
     
+class Artist(models.Model):
+    name = models.CharField(max_length=50)
+    
 
 class Song(models.Model):
     song_name = models.CharField(max_length=50)
-    song_author = models.CharField(max_length=50,blank=True)
+    song_author = models.ForeignKey(Artist,on_delete=models.SET_NULL,blank=True,null=True)
     show = models.BooleanField(default=True)
     yt_video = models.CharField(max_length=255, null=True, blank=True)
     audio = models.FileField(upload_to='Audios/', null=True, blank=True)

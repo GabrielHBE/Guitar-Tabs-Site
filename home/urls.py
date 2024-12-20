@@ -5,7 +5,9 @@ app_name = 'home'
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('create/', views.index, name='create'),
-    path('<author>/', views.index, name='author'),
-    path('<author>/<song>/', views.index, name='song'),
+    path('tabs/create/', views.create, name='create'),
+    path('tabs/artists/', views.artists, name='artists'),
+    path('tabs/artists/<str:artist>/', views.artist, name='artist'),
+    path('tabs/artists/<str:artist>/songs/', views.songs, name='songs'),
+    path('tabs/artists/<str:artist>/songs/<str:song>/', views.song, name='song'),
 ]
