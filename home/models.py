@@ -34,8 +34,8 @@ class Song(models.Model):
     song_author = models.ForeignKey(Artist,on_delete=models.SET_NULL,blank=True,null=True)
     show = models.BooleanField(default=True)
     yt_video = models.CharField(max_length=255, null=True, blank=True)
-    audio = models.FileField(upload_to='Audios/', null=True, blank=True)
-    tab = models.FileField(blank=True,upload_to='Tab_files/')
+    audio = models.FileField(upload_to='Songs/', null=True, blank=True)
+    tab = models.FileField(blank=True,upload_to='Tabs/')
     style = models.ForeignKey(Style,on_delete=models.SET_NULL,blank=True,null=True)
 
     def __str__(self) -> str:

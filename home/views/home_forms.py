@@ -7,7 +7,7 @@ from home.forms import SongForm,ArtistForm
 #Create tabs
 def create_tabs(request):
 
-    form_action = reverse('home:create_song')
+    form_action = reverse('home:create_tabs')
 
     if request.method == 'POST':
 
@@ -22,7 +22,7 @@ def create_tabs(request):
         if form.is_valid():
             contact = form.save() #salvar os dados na base de dados
 
-            return redirect('home:index',contact_id=contact.pk)
+            return redirect('home:index')
         
         return render(
             request,

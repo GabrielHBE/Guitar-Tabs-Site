@@ -23,12 +23,19 @@ def index(request):
 #A single artist
 def artist(request,artist):
 
-    Artist = get_object_or_404(Song,pk=artist,show=True)
+    Artist_ = get_object_or_404(Artist,pk=artist,show=True)
+
+    songs = Song.objects.filter(song_author=Artist_,show=True).order_by('-song_name')
+    paginator = Paginator(songs, 10)  # Show 10 contacts per page.
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
 
     context = {
-        'contact':Artist,
-        'title': Song.song_author
+        'Artist':Artist_,
+        'title': Artist_.name,
+        'page_obj': page_obj
     }
+    
     return render(
         request,
         'home/artist.html',
@@ -56,27 +63,6 @@ def artists(request):
         context
         )
 
-
-#list of songs by this artist
-def songs(request, artist, song):
-
-    artist = get_object_or_404(Artist.name, username=artist)
-
-    song = get_object_or_404(Song.song_name, id=song, artist=artist)
-
-    songs = Song.objects.filter(show=True).order_by('-id')
-    paginator = Paginator(songs, 10)  # Show 10 contacts per page.
-    page_number = request.GET.get("page")
-    page_obj = paginator.get_page(page_number)
-
-    context = {
-        'artist': artist,
-        'song': song,
-        'title' : f'{Artist.name} - Songs',
-        'page_obj': page_obj
-    }
-
-    return render(request, 'home/songs.html', context)
 
 #A single song by this artist
 def song(request, artist, song):

@@ -8,7 +8,7 @@
         <table class="contacts-table">
 
             <caption class="table-caption">
-                Contacts
+                Artists
             </caption>
 
             <thead>
@@ -22,7 +22,7 @@
                 {% for artist in page_obj %}
                     <tr class="table">
                         <td class="table-cel">
-                            <a class="table-link" href="{% url 'home:artists' %}">{{artist.id}}</a>
+                            <a class="table-link" href="{% url 'home:artist' artist.id %}">{{artist.id}}</a>
                         </td>
 
                         <td class="table-cel">
