@@ -22,7 +22,7 @@
                 {% for song in page_obj %}
                     <tr class="table">
                         <td class="table-cel">
-                            <a class="table-link" href="{% url "home:song_index" song.id %}">{{song.id}}</a>
+                            <a class="table-link" href="{% url "home:song" song.song_author.id song.id %}">{{song.id}}</a>
                         </td>
 
                         <td class="table-cel">

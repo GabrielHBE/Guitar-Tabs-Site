@@ -68,28 +68,14 @@ def artists(request):
 #A single song by this artist
 def song(request, artist, song):
 
-    artist = get_object_or_404(Artist.name, username=artist)
+    artist_obj = get_object_or_404(Artist, id=artist)
 
-    song = get_object_or_404(Song.song_name, id=song, artist=artist)
+    song_obj = get_object_or_404(Song, id=song, song_author=artist_obj)
 
     context = {
-        'artist': artist,
-        'song': song,
-        'title' : f'{Artist.name} - {Song.song_name}'
-    }
-
-    return render(request, 'home/song.html', context)
-
-
-def song_index(request,song):
-
-    Song_ = get_object_or_404(Song, pk=song)
-
-    print(Song_.tab)
-
-    context = { 
-        'song': Song_,
-        'title' : f'{Song_.song_author} - {Song_.song_name}'
+        'artist': artist_obj,
+        'song': song_obj,
+        'title' : f'{artist_obj.name} - {song_obj.song_name}'
     }
 
     return render(request, 'home/song.html', context)
