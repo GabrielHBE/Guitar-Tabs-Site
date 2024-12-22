@@ -34,10 +34,11 @@
             <a href="{{song.yt_video}}" target="_blank">{{song.yt_video}}</a>
         </div>
 
+        <h2>
+            Audio:
+        </h2>
         {% if song.audio %}
-            <h2>
-                Audio:
-            </h2>
+            
             <audio controls id='music'>
                 <source src="{{ song.audio.url }}" type="audio/mpeg">
                 <source src="{{ song.audio.url }}" type="audio/wav">
@@ -53,11 +54,11 @@
             </h2>
             {{song.style}}
         </div>
-                
+           
+        <h2>
+            Tabs:
+        </h2>
         {% if tabs %}
-            <h2>
-                Tabs:
-            </h2>
             <iframe src="{{ song.tab.url }}" width="1000" height="1000"></iframe>
         {% else %}
             No tabs available

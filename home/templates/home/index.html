@@ -9,12 +9,10 @@
 
         <table class="contacts-table">
             <caption class="table-caption">
-                Contacts
             </caption>
 
             <thead>
                 <tr class="table-row table-row-header">
-                    <th class="table-header">ID</th>
                     <th class="table-header">Song</th>
                     <th class="table-header">Artist</th>
                     <th class="table-header">Audio</th>
@@ -24,12 +22,9 @@
             <tbody>
                 {% for song in page_obj %}
                     <tr class="table">
-                        <td class="table-cel">
-                            <a class="table-link" href="{% url "home:song" song.song_author.id song.id %}">{{song.id}}</a>
-                        </td>
 
-                        <td class="table-cel">
-                            {{song.song_name}}
+                        <td class="table-cel"> 
+                            <a class="table-link" href="{% url "home:song" song.song_author.id song.id %}">{{song.song_name}}</a>
                         </td>
 
                         <td class="table-cel">

@@ -43,7 +43,7 @@ class Artist(models.Model):
 
 class Song(models.Model):
     song_name = models.CharField(max_length=50)
-    song_author = models.ForeignKey(Artist,on_delete=models.SET_NULL,blank=True,null=True)
+    song_author = models.ForeignKey(Artist,on_delete=models.SET_NULL,null=True)
     show = models.BooleanField(default=True)
     yt_video = models.CharField(max_length=255, null=True, blank=True)
     audio = models.FileField(upload_to='Songs/', null=True, blank=True)
