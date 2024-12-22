@@ -35,7 +35,7 @@
 
                         <td class="table-cel">
                             {% if song.audio %}
-                                <audio controls>
+                                <audio controls id='music'>
                                     <source src="{{ song.audio.url }}" type="audio/mpeg">
                                     <source src="{{ song.audio.url }}" type="audio/wav">
                                     <source src="{{ song.audio.url }}" type="audio/ogg">
@@ -55,7 +55,7 @@
 {% else %}
 <div class="single-contact">
     <h1 class="single-contact-name">
-        Nenhum contado encontrado
+        No results
     </h1>
 </div>
 {% endif %}

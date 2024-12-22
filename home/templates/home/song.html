@@ -20,7 +20,7 @@
             </div>
 
             {% if song.audio %}
-                <audio controls>
+                <audio controls id='music'>
                     <source src="{{ song.audio.url }}" type="audio/mpeg">
                     <source src="{{ song.audio.url }}" type="audio/wav">
                     <source src="{{ song.audio.url }}" type="audio/ogg">
@@ -29,8 +29,12 @@
                 No audio available
             {% endif %}
 
-            {% if song.tab %}
-                <embed src="{{song.tab.url}}"  width="100%" height="600px">
+            {% if tab %}
+                {% for image in tab %}
+                    <div>
+                        <img src="{{ image }}">
+                    </div>
+                {% endfor %}
             {% else %}
                 No tab available
             {% endif %}

@@ -72,10 +72,25 @@ def song(request, artist, song):
 
     song_obj = get_object_or_404(Song, id=song, song_author=artist_obj)
 
+    pdf_path = song_obj.tab
+
+    # Caminho da pasta de saída para as imagens
+    output_folder = os.path.join('media', 'images', artist_obj.name, song_obj.song_name)
+
+    # Criar a pasta de saída se não existir
+    os.makedirs(output_folder, exist_ok=True)
+
+    # Chamar a função para converter o PDF em imagens
+    pdf_to_images(pdf_path, output_folder)
+
+    # Listar as imagens geradas
+    images = [f"/media/images/{artist_obj.name}/{song_obj.song_name}/{img}" for img in os.listdir(output_folder) if img.endswith(".png")]
+
     context = {
         'artist': artist_obj,
         'song': song_obj,
-        'title' : f'{artist_obj.name} - {song_obj.song_name}'
+        'title' : f'{artist_obj.name} - {song_obj.song_name}',
+        'tabs': images
     }
 
     return render(request, 'home/song.html', context)
