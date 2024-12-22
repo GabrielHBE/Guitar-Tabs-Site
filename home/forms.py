@@ -10,7 +10,7 @@ class SongForm(forms.ModelForm):
 
     class Meta: 
         model = models.Song
-        fields = ('song_name', 'song_author', 'yt_video', 'audio', 'tab', 'style')
+        fields = ('song_name', 'song_author', 'yt_video', 'audio', 'tab', 'style','instrument',)
 
     def clean(self):
         return super().clean()

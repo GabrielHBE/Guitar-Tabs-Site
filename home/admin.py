@@ -22,3 +22,8 @@ class StyleAdmin(admin.ModelAdmin):
 class ArtistAdmin(admin.ModelAdmin):
     #list_display = ('song_name',)
     ordering = ('-id',)
+
+@admin.register(models.Instrument)
+class InstrumentAdmin(admin.ModelAdmin):
+    #list_display = ('song_name',)
+    ordering = ('-id',)
