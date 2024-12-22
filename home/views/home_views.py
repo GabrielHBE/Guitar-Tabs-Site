@@ -1,6 +1,7 @@
 from django.shortcuts import render,get_object_or_404
 from home.models import Song,Artist
 from django.core.paginator import Paginator
+from home.funcs import *
 
 # Create your views here.
 
@@ -79,3 +80,16 @@ def song(request, artist, song):
 
     return render(request, 'home/song.html', context)
 
+
+def song_index(request,song):
+
+    Song_ = get_object_or_404(Song, pk=song)
+
+    print(Song_.tab)
+
+    context = { 
+        'song': Song_,
+        'title' : f'{Song_.song_author} - {Song_.song_name}'
+    }
+
+    return render(request, 'home/song.html', context)

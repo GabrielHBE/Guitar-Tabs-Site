@@ -1,1 +1,45 @@
 {% extends "global/base.html" %}
+
+{% block content %}
+  <h1>Song</h1>
+  
+    <div class="form-wrapper">
+        
+        <div class="form-content">
+
+            <div class="form-group">
+                {{song.song_name}}
+            </div>
+
+            <div class="form-group">
+                {{song.song_author}}
+            </div>
+
+            <div class="form-group">
+                {{song.yt_video}}
+            </div>
+
+            {% if song.audio %}
+                <audio controls>
+                    <source src="{{ song.audio.url }}" type="audio/mpeg">
+                    <source src="{{ song.audio.url }}" type="audio/wav">
+                    <source src="{{ song.audio.url }}" type="audio/ogg">
+                </audio>
+            {% else %}
+                No audio available
+            {% endif %}
+
+            {% if song.tab %}
+                <embed src="{{song.tab.url}}"  width="100%" height="600px">
+            {% else %}
+                No tab available
+            {% endif %}
+
+            <div class="form-group">
+                {{song.style}}
+            </div>
+
+        </div> 
+
+    </div>
+{% endblock content %}

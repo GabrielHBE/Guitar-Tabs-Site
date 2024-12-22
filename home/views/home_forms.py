@@ -20,7 +20,7 @@ def create_tabs(request):
         }
 
         if form.is_valid():
-            contact = form.save() #salvar os dados na base de dados
+            form.save() #salvar os dados na base de dados
 
             return redirect('home:index')
         
@@ -58,7 +58,7 @@ def create_artist(request):
         }
 
         if form.is_valid():
-            contact = form.save() #salvar os dados na base de dados
+            form.save() #salvar os dados na base de dados
 
             return redirect('home:index')
         
