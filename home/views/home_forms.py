@@ -79,3 +79,4 @@ def create_artist(request):
             'home/create_artist.html',
             context
             )
+

@@ -12,9 +12,8 @@ class SongForm(forms.ModelForm):
         model = models.Song
         fields = ('song_name', 'song_author', 'yt_video', 'audio', 'tab', 'style')
 
-
-class RegisterForm(UserCreationForm):
-    pass
+    def clean(self):
+        return super().clean()
 
 
 class ArtistForm(forms.ModelForm):
@@ -25,11 +24,8 @@ class ArtistForm(forms.ModelForm):
 
 
     def clean(self):
-        cleaned_data = self.cleaned_data
-
-        name = cleaned_data.get('song_author')
-
         return super().clean()
+
 
 class RegisterForm(UserCreationForm):
     pass
