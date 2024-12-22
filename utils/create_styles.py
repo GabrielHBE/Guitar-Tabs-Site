@@ -8,7 +8,7 @@ import django
 from django.conf import settings
 
 DJANGO_BASE_DIR = Path(__file__).parent.parent
-NUMBER_OF_OBJECTS = 1000
+
 
 sys.path.append(str(DJANGO_BASE_DIR))
 os.environ['DJANGO_SETTINGS_MODULE'] = 'project.settings'
@@ -53,12 +53,12 @@ if __name__ == '__main__':
 
     django_contacts = []
 
-    for _ in range(NUMBER_OF_OBJECTS):
+    for _ in range(len(categories)):
         category = choice(django_categories)
 
         django_contacts.append(
             Style(
-                category=category,
+                name=category,
             )
         )
 
