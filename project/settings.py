@@ -29,6 +29,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -136,8 +137,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 X_FRAME_OPTIONS = 'ALLOWALL'
 
-#try:
-#    from project.local_settings import *
-#
-#except ImportError:
-#    pass
+try:
+    from project.local_settings import *
+
+except ImportError:
+    pass
