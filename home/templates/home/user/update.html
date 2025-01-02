@@ -1,0 +1,18 @@
+{% extends 'global/base.html' %}
+
+{% block content %}
+
+    <div class="form-wrapper">
+        <h2>Update user </h2>
+        
+        {% include "home/partials/user-form.html" %}
+
+        <div>
+            Click <a href="{% url "home:logout" %}">Here</a> to logout
+        </div>
+
+    </div>
+
+    
+
+{% endblock content %}

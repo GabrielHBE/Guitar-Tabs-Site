@@ -36,7 +36,8 @@ class Artist(models.Model):
 
     name = models.CharField(max_length=50)
     show = models.BooleanField(default=True)
-
+    user = models.CharField(max_length=150,null=True,blank=True)
+    
     def __str__(self) -> str:
         return self.name
     
@@ -48,7 +49,7 @@ class Song(models.Model):
     yt_video = models.CharField(max_length=255, null=True, blank=True)
     audio = models.FileField(upload_to='Songs/', null=True, blank=True)
     tab = models.FileField(upload_to='Tabs/',null=True,blank=True)
-    
+    user = models.CharField(max_length=150,null=True,blank=True)
     style = models.ForeignKey(Style,on_delete=models.SET_NULL,blank=True,null=True)
     instrument = models.ForeignKey(Instrument,on_delete=models.SET_NULL,blank=True,null=True)
 

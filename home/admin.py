@@ -6,7 +6,7 @@ from home import models
 @admin.register(models.Song)
 class SongAdmin(admin.ModelAdmin):
     list_display = ('id','song_name','song_author','show')
-    ordering = ('id',)
+    ordering = ('song_name',)
     search_fields = ('id','song_name','song_author',)
     list_per_page = 10
     #list_editable = ('first_name','last_name','show')
@@ -16,14 +16,14 @@ class SongAdmin(admin.ModelAdmin):
 @admin.register(models.Style)
 class StyleAdmin(admin.ModelAdmin):
     #list_display = ('song_name',)
-    ordering = ('-id',)
+    ordering = ('-name',)
 
 @admin.register(models.Artist)
 class ArtistAdmin(admin.ModelAdmin):
     #list_display = ('song_name',)
-    ordering = ('-id',)
+    ordering = ('-name',)
 
 @admin.register(models.Instrument)
 class InstrumentAdmin(admin.ModelAdmin):
     #list_display = ('song_name',)
-    ordering = ('-id',)
+    ordering = ('-name',)

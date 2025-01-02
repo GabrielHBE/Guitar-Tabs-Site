@@ -1,0 +1,34 @@
+{% extends "global/user_base.html" %}
+
+{% block content %}
+
+    <div class="form-wrapper">
+        
+        <h2>Login</h2>
+
+        {% if user.is_authenticated %}
+        <p> 
+            {{user.username}}   
+        </p>
+
+        <p>
+            Click <a href="{% url "home:logout" %}">Here</a> to logout
+        </p>
+
+        <p>
+            Click <a href="{% url "home:index" %}">Here</a> to go to home
+        </p>
+        {% else %}
+            {% include "home/partials/user-form.html" %}
+            <div>
+                New here? Click <a href="{% url "home:register" %}">here</a> to create an account!
+            </div>
+        {% endif %}
+
+        
+
+    </div>
+
+    
+
+{% endblock content %}
